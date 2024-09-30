@@ -25,7 +25,9 @@ A simple command-line tool for simulating DDoS attacks using TCP and UDP protoco
 - **To install the tool, clone this repository and run the following command**:
 
 ```
-pip install .
+git clone https://github.com/hemaabokila/ddos_attack.git
+cd ddos_attack
+sudo pip install .
 ```
 - **Alternatively, you can manually install the required dependencies**:
 
