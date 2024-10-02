@@ -12,6 +12,7 @@ setup(
     packages=find_packages(),
     install_requires=[
         "rich",
+        "colorama",
     ],
     classifiers=[
         "Programming Language :: Python :: 3",
