@@ -38,23 +38,21 @@ pip install rich
 - **To run the tool, use the following command**:
 
 ```
-ddos --target <TARGET_IP> --port <TARGET_PORT> --threads <THREAD_COUNT> --attack <TCP/UDP> --proxy-file proxies.txt
+ddos target <TARGET_IP> --port <TARGET_PORT> --threads <THREAD_COUNT> --attack <TCP/UDP> --proxies proxies.txt
 ```
 ## Example
 ```
-ddos -t 192.168.1.100 -p 80 -a TCP -P proxies.txt
+ddos 192.168.1.100 -p 80 -a TCP -P proxies.txt
 ```
 ## Arguments
-- **-t, --target: Target IP address (required)**.
+- **target: Target IP address (required)**.
 - **-p, --port: Target port (required)**.
-- **-n, --threads: Number of threads (default: 1000)**.
+- **-t, --threads: Number of threads (default: 1000)**.
 - **-a, --attack: Type of attack (TCP/UDP, required)**.
 - **-P, --proxy-file: proxy file (proxies.txt)**.
 ## Requirements
 - **Python 3.6 or higher**
 - **rich library**
-- **License**
-- **This project is licensed under the MIT License. See the LICENSE file for more details**.
 
 ## Contact
 - **Developed by: Ibrahem abo kila**
