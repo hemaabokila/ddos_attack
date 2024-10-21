@@ -1,4 +1,6 @@
 # DDoS Attack Tool
+[![Python Version](https://img.shields.io/badge/python-3.x-blue.svg)](https://www.python.org/)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
 A simple command-line tool for simulating DDoS attacks using TCP and UDP protocols. This tool is designed for educational purposes only. Please use it responsibly and within the legal boundaries.
 
@@ -54,6 +56,8 @@ ddos 192.168.1.100 -p 80 -a TCP -P proxies.txt
 ## Requirements
 - **Python 3.6 or higher**
 - **rich library**
+## License
+This project is licensed under the MIT License - see the [LICENSE](./LICENSE) file for details.
 
 ## Contact
 - **Developed by: Ibrahem abo kila**
